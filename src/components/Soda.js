@@ -19,7 +19,7 @@ Soda.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
   sugarContent: PropTypes.string,
-  pints: PropTypes.string,
+  pints: PropTypes.number,
   price: PropTypes.string,
   id: PropTypes.string,
   whenSodaClicked: PropTypes.func

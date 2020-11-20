@@ -17,6 +17,7 @@ function SodaList(props) {
           id={soda.id}
           key={soda.id}/>
       )}
+      
     </React.Fragment>
   );
 }

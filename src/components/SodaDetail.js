@@ -12,6 +12,7 @@ function SodaDetail(props){
       <p><strong>Sugar Content:</strong> {soda.sugarContent}g per pint</p>
       <p><strong>Total Pints:</strong> {soda.pints} pints</p>
       <p><strong>Price:</strong> {soda.price}/pint</p>
+      <button class="btn-success" onClick={props.onClickingSellPint}>Sell Pint</button>&nbsp;&nbsp;
       <button onClick={ props.onClickingEdit }>Update Soda</button>&nbsp;&nbsp;
       <button onClick={()=> onClickingDelete(soda.id) }>Remove Soda</button>
       <hr/>
@@ -22,7 +23,8 @@ function SodaDetail(props){
 SodaDetail.propTypes = {
   soda: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func
+  onClickingEdit: PropTypes.func,
+  onClickingSellPint: PropTypes.func
 };
 
 export default SodaDetail;

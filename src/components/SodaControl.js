@@ -49,6 +49,20 @@ class SodaControl extends React.Component {
       selectedSoda: null
     });
   }
+  handleSellPintClick = () => {
+    console.log(this.state.selectedSoda.pints);
+    const editedMasterSodaList = this.state.masterSodaList
+    
+    .filter(soda => soda.id !== this.state.selectedSoda.id)
+    .concat(this.state.selectedSoda.pints = this.state.selectedSoda.pints -1)
+    console.log(this.state.selectedSoda.pints);
+    this.setState({
+      // masterSodaList: editedMasterSodaList,
+      editing: false,
+      selectedSoda: null
+    });
+
+  }
 
   handleEditingSodaInList = (sodaToEdit) => {
     const editedMasterSodaList = this.state.masterSodaList
@@ -73,7 +87,7 @@ class SodaControl extends React.Component {
       currentlyVisibleState = <EditSodaForm soda = {this.state.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
       buttonText = "Return to Soda List";
     } else if (this.state.selectedSoda != null) {
-      currentlyVisibleState = <SodaDetail soda = {this.state.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} />
+      currentlyVisibleState = <SodaDetail soda = {this.state.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} onClickingSellPint = {this.handleSellPintClick} />
       buttonText = "Return to Soda List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
