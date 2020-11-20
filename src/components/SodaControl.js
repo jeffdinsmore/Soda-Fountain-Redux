@@ -28,6 +28,19 @@ class SodaControl extends React.Component {
     const selectedSoda = this.state.masterSodaList.filter(soda => soda.id === id)[0];
     this.setState({ selectedSoda: selectedSoda });
   }
+
+  handleSellPintClick = (id) => {
+    console.log(this.state.selectedSoda.pints);
+    const editedMasterSodaList = this.state.masterSodaList
+    .filter(soda => soda.id !== id)[0]
+    .concat(this.state.selectedSoda.pints = this.state.selectedSoda.pints -1)
+    console.log(this.state.selectedSoda.pints);
+    this.setState({
+      // masterSodaList: editedMasterSodaList,
+      editing: false,
+      selectedSoda: null
+    });
+  }
   handleClick = () => {
     if (this.state.selectedSoda != null) {
       this.setState({
@@ -41,27 +54,13 @@ class SodaControl extends React.Component {
       }));
     }
   }
-
+  
   handleDeletingSoda = (id) => {
     const newMasterSodaList = this.state.masterSodaList.filter(soda => soda.id !== id);
     this.setState({
       masterSodaList: newMasterSodaList,
       selectedSoda: null
     });
-  }
-  handleSellPintClick = () => {
-    console.log(this.state.selectedSoda.pints);
-    const editedMasterSodaList = this.state.masterSodaList
-    
-    .filter(soda => soda.id !== this.state.selectedSoda.id)
-    .concat(this.state.selectedSoda.pints = this.state.selectedSoda.pints -1)
-    console.log(this.state.selectedSoda.pints);
-    this.setState({
-      // masterSodaList: editedMasterSodaList,
-      editing: false,
-      selectedSoda: null
-    });
-
   }
 
   handleEditingSodaInList = (sodaToEdit) => {
