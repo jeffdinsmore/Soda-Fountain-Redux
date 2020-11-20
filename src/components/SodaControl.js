@@ -10,7 +10,6 @@ class SodaControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      count: 0,
       masterSodaList: [],
       selectedSoda: null,
       editing: false
@@ -67,12 +66,6 @@ class SodaControl extends React.Component {
     this.setState({editing: true});
   }
 
-  // handleClick = () => {
-  //   this.setState(prevState => {
-  //     return { count: prevState.count + 1 }
-  //   })
-  // }
-
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -82,23 +75,12 @@ class SodaControl extends React.Component {
     } else if (this.state.selectedSoda != null) {
       currentlyVisibleState = <SodaDetail soda = {this.state.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Soda List";
-      // }
-      // else if (this.state.count === 1) {
-      //   currentlyVisibleState = <Steps />
-      //   buttonText = "Yes";
-      // } else if (this.state.count === 2) {
-      //   currentlyVisibleState = <Help />
-      //   buttonText = "Yes";
-      // } else if (this.state.count === 3) {
-      //   currentlyVisibleState = <Question />
-      //   buttonText = "Go to Form";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
       buttonText = "Return to Soda List";
     } else {
       currentlyVisibleState = <SodaList sodaList={this.state.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} />;
       buttonText = "Add Soda";
-      // this.state.count = 0;
     }
     return (
       <React.Fragment>

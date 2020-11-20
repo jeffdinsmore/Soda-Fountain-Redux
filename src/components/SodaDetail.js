@@ -11,8 +11,8 @@ function SodaDetail(props){
       <h4>{soda.brand}</h4>
       <h4>{soda.sugarContent}</h4>
       <h4>{soda.price}</h4>
-      <button onClick={ props.onClickingEdit }>Update Soda</button>
-      <button onClick={()=> onClickingDelete(soda.id) }>Close Soda</button>
+      <button onClick={ props.onClickingEdit }>Update Soda</button>&nbsp;&nbsp;
+      <button onClick={()=> onClickingDelete(soda.id) }>Remove Soda</button>
       <hr/>
     </React.Fragment>
   );
