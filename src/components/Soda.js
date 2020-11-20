@@ -5,10 +5,10 @@ function Soda(props) {
   return (
     <React.Fragment>
       <div onClick = {() => props.whenSodaClicked(props.id)}>
-        <h4>{props.name}</h4>
-        <h4>{props.brand}</h4>
-        <h4>{props.sugarContent}</h4>
-        <h4>{props.price}</h4>
+        <p><strong>Soda:</strong> {props.name}</p>
+        <p><strong>Brand:</strong> {props.brand}</p>
+        <p><strong>Sugar Content:</strong> {props.sugarContent}g per pint</p>
+        <p><strong>Price:</strong> ${props.price}</p>
         <hr/>
       </div>
     </React.Fragment>
