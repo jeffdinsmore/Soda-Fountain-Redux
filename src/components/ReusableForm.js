@@ -22,6 +22,11 @@ function ReusableForm(props) {
           <br></br>
         <input class="field"
           type='text'
+          name='pints'
+          placeholder='Total pints' />
+          <br></br>
+        <input class="field"
+          type='text'
           name='price'
           placeholder='Price per pint' />
           <br></br>
