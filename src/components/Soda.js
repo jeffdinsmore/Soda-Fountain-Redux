@@ -15,11 +15,13 @@ function Soda(props) {
   )
 }
 
-Soda.PropTypes = {
+Soda.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
-  sugarContent: PropTypes.number,
-  price: PropTypes.number,
+  sugarContent: PropTypes.string,
+  price: PropTypes.string,
   id: PropTypes.string,
   whenSodaClicked: PropTypes.func
 }
+
+export default Soda;
