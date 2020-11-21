@@ -1,3 +1,50 @@
+# _Jeff's Soda Fountain_
+
+#### _Jeff's Soda Fountain website lists the kegs of soda at his soda bar and he can add, update, and delete each soda, 10/23/2020_
+
+#### By _Jeff Dinsmore_
+
+## Description
+
+_Jeff's Soda Fountain website will allow a user to add a keg of soda with details such as soda type, brand, sugar content per pint, pints left in the keg, and price per pint. The user can then view the details of each soda and "sell" a pint which will reduce the pints left in the keg by one. There is also functionality for updating, deleting, and adding a new soda._
+
+## Component Diagram
+
+<img src="https://jeffdinsmore.com/images/component-diagram.PNG">
+
+## Setup/Installation Requirements
+
+* _Clone this repository_
+* _Open repository in your preferred code builder program. (This was built in VS Code)_
+* _In the terminal, cd into the soda-fountain folder_
+* _Type in the terminal "npm install" and press enter, then type "npm build" and press enter_
+* _To run the program, type "npm run start" in the terminal_
+* _The program should now be running_
+
+## Known Bugs
+
+_No known bugs at the this time._
+
+## Support and contact details
+
+_Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsmore.com._
+
+## Technologies Used
+
+* _JavaScript_
+* _JSX_
+* _CSS_
+* _VS Code_
+* _React_
+
+## License
+
+Copyright (c) 2020, **_Jeff Dinsmore_**
+
+This software is licensed under the MIT license.
+
+----------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,5 +115,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-<img src="https://jeffdinsmore.com/images/component-diagram.PNG">
