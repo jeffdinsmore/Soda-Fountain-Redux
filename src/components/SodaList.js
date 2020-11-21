@@ -9,7 +9,6 @@ function SodaList(props) {
       {props.sodaList.map((soda) =>
         <Soda
           whenSodaClicked = { props.onSodaSelection }
-          onClickingSellPint = {props.onClickingSellPint}
           name={soda.name}
           brand={soda.brand}
           sugarContent={soda.sugarContent}
@@ -18,7 +17,6 @@ function SodaList(props) {
           id={soda.id}
           key={soda.id}/>
       )}
-      
     </React.Fragment>
   );
 }

@@ -25,23 +25,25 @@ class SodaControl extends React.Component {
   }
 
   handleChangingSelectedSoda = (id) => {
+    console.log(id);
     const selectedSoda = this.state.masterSodaList.filter(soda => soda.id === id)[0];
+    console.log(selectedSoda);
     this.setState({ selectedSoda: selectedSoda });
   }
-
-  handleSellPintClick = (id) => {
-    console.log(this.state.selectedSoda.pints);
-    const editedMasterSodaList = this.state.masterSodaList
-    .filter(soda => soda.id !== id)[0]
+  handleSellPintClick = () => {
+    console.log(this.state.selectedSoda.id);
+    const minusPintMasterSodaList = this.state.masterSodaList
+    .filter(soda => soda.id !== this.state.selectedSoda.id)
     .concat(this.state.selectedSoda.pints = this.state.selectedSoda.pints -1)
-    console.log(this.state.selectedSoda.pints);
+    console.log(minusPintMasterSodaList);
     this.setState({
-      // masterSodaList: editedMasterSodaList,
+      // masterSodaList: minusPintMasterSodaList,
       editing: false,
       selectedSoda: null
     });
   }
   handleClick = () => {
+    console.log(this.state.masterSodaList)
     if (this.state.selectedSoda != null) {
       this.setState({
         formVisibleOnPage: false,
@@ -54,7 +56,7 @@ class SodaControl extends React.Component {
       }));
     }
   }
-  
+
   handleDeletingSoda = (id) => {
     const newMasterSodaList = this.state.masterSodaList.filter(soda => soda.id !== id);
     this.setState({
