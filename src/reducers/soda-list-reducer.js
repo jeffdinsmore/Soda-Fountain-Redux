@@ -4,7 +4,7 @@ export default (state = {}, action) => {
   const { name, brand, sugarContent, pints, price, id } = action;
   switch (action.type) {
     case c.ADD_SODA:
-      console.log("action: ", action.pints);
+      console.log("action1: ", action.pints);
       return Object.assign({}, state, {
         [id]: {
           name: name,
@@ -16,12 +16,7 @@ export default (state = {}, action) => {
         }
       });
       
-    case c.SELL_PINT:
-      console.log("action: ", action.pints);
-      return {
-        ...state,
-        pints: action.pints -1
-      };
+    
     //   return 
     //   const editedMasterSodaList = this.state.masterSodaList
     //   editedMasterSodaList.map((soda) => {

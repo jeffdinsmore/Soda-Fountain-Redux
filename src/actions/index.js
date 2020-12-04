@@ -10,9 +10,7 @@ export const sellPint = (id) => {
     type: c.SELL_PINT,
     id,
   }
-}  
-  
-
+}
 export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });

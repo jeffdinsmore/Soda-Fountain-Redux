@@ -76,21 +76,5 @@ describe('sodaListReducer', () => {
     });
   });
 
-  test('Should successfully subtract a pint from soda', () => {
-    action = {
-      type: c.SELL_PINT,
-      id: 1
-    };
-    expect(sodaListReducer(sodaData, action)).toEqual({
-      sodaData: {
-        name: 'Dr. Pepper',
-        brand: 'Pepsi',
-        sugarContent: '44',
-        pints: 125,
-        price: '2.49',
-        id: 1
-      }
-    
-    });
-  });
+  
 });
