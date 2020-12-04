@@ -13,7 +13,7 @@ class SodaControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      formVisibleOnPage: false,
+      // formVisibleOnPage: false,
       // masterSodaList: [],
       selectedSoda: null,
       editing: false
@@ -33,9 +33,10 @@ class SodaControl extends React.Component {
       price: price
     }
     dispatch(action);
-    this.setState({
-      formVisibleOnPage: false
-    });
+    const action2 = {
+      type: c.TOGGLE_FORM
+    }
+    dispatch(action2);
   }
 
   handleChangingSelectedSoda = (id) => {
@@ -45,14 +46,15 @@ class SodaControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedSoda != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedSoda: null,
         editing: false
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: c.TOGGLE_FORM
+      }
+      dispatch(action);
     }
   }
   
@@ -121,7 +123,7 @@ class SodaControl extends React.Component {
     } else if (this.state.selectedSoda != null) {
       currentlyVisibleState = <SodaDetail soda = {this.state.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} onClickingSellPint = {this.handleSellPintClick} />
       buttonText = "Return to Soda List";
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
       buttonText = "Return to Soda List";
     } else {
@@ -138,12 +140,14 @@ class SodaControl extends React.Component {
   }
 }
 SodaControl.propTypes = {
-  masterSodaList: PropTypes.object
+  masterSodaList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
-    masterSodaList: state
+    masterSodaList: state.masterSodaList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 
