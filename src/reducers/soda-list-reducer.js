@@ -16,7 +16,7 @@ export default (state = {}, action) => {
         }
       });
     case c.DELETE_SODA:
-      const newState = { ...state, selectedSoda: null };
+      const newState = { ...state };
       delete newState[id];
       return newState;
     default:
