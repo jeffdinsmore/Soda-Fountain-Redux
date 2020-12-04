@@ -22,3 +22,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+// const newMasterSodaList = this.state.masterSodaList.concat(newSoda);

@@ -3,23 +3,36 @@ import NewSodaForm from './NewSodaForm';
 import SodaList from './SodaList';
 import SodaDetail from './SodaDetail';
 import EditSodaForm from './EditSodaForm';
+import { connect } from 'react-redux';
+import * as c from './../actions/ActionTypes';
 
 class SodaControl extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       formVisibleOnPage: false,
-      masterSodaList: [],
+      // masterSodaList: [],
       selectedSoda: null,
       editing: false
     };
   }
 
   handleAddingNewSodaToList = (newSoda) => {
-    const newMasterSodaList = this.state.masterSodaList.concat(newSoda);
+    const { dispatch } = this.props;
+    const { name, brand, sugarContent, pints, price, id } = newSoda;
+    const action = {
+      type: c.ADD_SODA,
+      id: id,
+      name: name,
+      brand: brand,
+      sugarContent: sugarContent,
+      pints: pints,
+      price: price
+    }
+    dispatch(action);
     this.setState({
-      masterSodaList: newMasterSodaList,
       formVisibleOnPage: false
     });
   }
@@ -112,5 +125,7 @@ class SodaControl extends React.Component {
   }
 
 }
+
+SodaControl = connect()(SodaControl);
 
 export default SodaControl;

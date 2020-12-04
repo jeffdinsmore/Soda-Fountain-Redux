@@ -47,7 +47,6 @@ describe('sodaListReducer', () => {
       price: price,
       id: id
     };
-
     expect(sodaListReducer({}, action)).toEqual({
       [id]: {
         name: name,
@@ -59,6 +58,7 @@ describe('sodaListReducer', () => {
       }
     });
   });
+
   test('Should successfully delete a soda', () => {
     action = {
       type: c.DELETE_SODA,
@@ -75,4 +75,5 @@ describe('sodaListReducer', () => {
       }
     });
   });
+  
 });
