@@ -28,17 +28,6 @@ class SodaControl extends React.Component {
     const selectedSoda = this.state.masterSodaList.filter(soda => soda.id === id)[0];
     this.setState({ selectedSoda: selectedSoda });
   }
-  handleSellPintClick = () => {
-    if (this.state.selectedSoda.pints > 0) {
-      this.state.masterSodaList
-      .filter(soda => soda.id !== this.state.selectedSoda.id)
-      .concat(this.state.selectedSoda.pints = this.state.selectedSoda.pints -1)
-    } 
-    this.setState({
-      editing: false,
-      selectedSoda: null
-    });
-  }
   handleClick = () => {
     if (this.state.selectedSoda != null) {
       this.setState({
@@ -52,7 +41,7 @@ class SodaControl extends React.Component {
       }));
     }
   }
-
+  
   handleDeletingSoda = (id) => {
     const newMasterSodaList = this.state.masterSodaList.filter(soda => soda.id !== id);
     this.setState({
@@ -60,18 +49,40 @@ class SodaControl extends React.Component {
       selectedSoda: null
     });
   }
-
+  
   handleEditingSodaInList = (sodaToEdit) => {
     const editedMasterSodaList = this.state.masterSodaList
-      .filter(soda => soda.id !== this.state.selectedSoda.id)
-      .concat(sodaToEdit);
+    .filter(soda => soda.id !== this.state.selectedSoda.id)
+    .concat(sodaToEdit);
     this.setState({
-        masterSodaList: editedMasterSodaList,
-        editing: false,
-        selectedSoda: null
-      });
+      masterSodaList: editedMasterSodaList,
+      editing: false,
+      selectedSoda: null
+    });
   }
-
+  
+  handleSellPintClick = (id) => {
+    const editedMasterSodaList = this.state.masterSodaList
+    editedMasterSodaList.map((soda) => {
+      if(soda.id === id) {
+        if (soda.pints <= 11 && soda.pints > 0) {
+        soda.status = "Almost out of pints";
+        soda.pints = soda.pints -1;
+        } else if (soda.pints > 0) {
+        soda.pints = soda.pints -1;
+        } else {
+        soda.pints = 0;
+        soda.status = "Out of stock!"
+        }
+      }
+      return soda;
+    })
+      this.setState({
+      masterSodaList: editedMasterSodaList,
+      // editing: false,
+      // selectedSoda: null
+    });
+  }
   handleEditClick = () => {
     this.setState({editing: true});
   }
