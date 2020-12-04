@@ -5,14 +5,14 @@ export const deleteSoda = id => ({
   id
 });
 
-// export const sellPint = (id) => {
-//   return {
-//     type: c.SELL_PINT,
-//     id,
-//   }
+export const sellPint = (id) => {
+  return {
+    type: c.SELL_PINT,
+    id,
+  }
+}  
   
-  
-// })
+
 export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });

@@ -11,7 +11,7 @@ describe('soda fountain actions', () => {
 
   it('toggleForm should create TOGGLE_FORM action', () => {
     expect(actions.toggleForm()).toEqual({
-      type: 'TOGGLE_FORM'
+      type: c.TOGGLE_FORM
     });
   });
 

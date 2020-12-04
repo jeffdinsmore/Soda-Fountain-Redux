@@ -7,7 +7,7 @@ function EditSodaForm(props){
 
   function handleEditSodaFormSubmission(event) {
     event.preventDefault();
-    props.onEditSoda({name: event.target.name.value, brand: event.target.brand.value, sugarContent: event.target.sugarContent.value, price: event.target.price.value, id: soda.id});
+    props.onEditSoda({name: event.target.name.value, brand: event.target.brand.value, sugarContent: event.target.sugarContent.value, pints: event.target.pints.value, price: event.target.price.value, id: soda.id});
   }
 
   return (
