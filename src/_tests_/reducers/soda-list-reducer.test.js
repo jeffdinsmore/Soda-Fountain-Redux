@@ -1,5 +1,5 @@
 import sodaListReducer from '../../reducers/soda-list-reducer';
-// import * as c from '../../actions/ActionTypes';
+import * as c from '../../actions/ActionTypes';
 
 describe('sodaListReducer', () => {
 
@@ -36,4 +36,28 @@ describe('sodaListReducer', () => {
     expect(sodaListReducer({}, { type: null })).toEqual({});
   });
   
+  test('Should successfully add new soda data to masterSodaList', () => {
+    const { name, brand, sugarContent, pints, price, id } = sodaData;
+    action = {
+      type: c.ADD_SODA,
+      name: name,
+      brand: brand,
+      sugarContent: sugarContent,
+      pints: pints,
+      price: price,
+      id: id
+    };
+
+    expect(sodaListReducer({}, action)).toEqual({
+      [id]: {
+        name: name,
+        brand: brand,
+        sugarContent: sugarContent,
+        pints: pints,
+        price: price,
+        id: id
+      }
+    });
+  });
+
 });
