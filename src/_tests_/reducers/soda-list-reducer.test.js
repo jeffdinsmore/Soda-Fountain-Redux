@@ -59,5 +59,20 @@ describe('sodaListReducer', () => {
       }
     });
   });
-
+  test('Should successfully delete a soda', () => {
+    action = {
+      type: c.DELETE_SODA,
+      id: 1
+    };
+    expect(sodaListReducer(currentState, action)).toEqual({
+      2: {
+        name: 'Mt. Dew',
+        brand: 'Pepsi',
+        sugarContent: '54',
+        pints: '126',
+        price: '2.49',
+        id: 2
+      }
+    });
+  });
 });
