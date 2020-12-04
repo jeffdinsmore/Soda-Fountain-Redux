@@ -64,7 +64,8 @@ class SodaControl extends React.Component {
   }
   
   handleSellPintClick = (id) => {
-    const editedMasterSodaList = this.state.masterSodaList
+    const editedMasterSodaList = this.props.masterSodaList
+    console.log(this.props.masterSodaList);
     editedMasterSodaList.map((soda) => {
       if(soda.id === id) {
         if (soda.pints <= 11 && soda.pints > 0) {

@@ -76,9 +76,9 @@ describe('sodaListReducer', () => {
     });
   });
 
-  test('Should successfully subtract a pint from soda', () => {
-    action = {
-      type: c.
-    }
-  })
+  // test('Should successfully subtract a pint from soda', () => {
+  //   action = {
+  //     type: c.
+  //   }
+  // })
 });

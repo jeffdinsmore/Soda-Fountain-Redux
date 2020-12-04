@@ -24,7 +24,6 @@ function ReusableForm(props) {
           required='required' />
           <br></br>
         <input className="field"
-          // value={String(this.state.)}
           type='number'
           name='pints'
           placeholder='Total pints' 
