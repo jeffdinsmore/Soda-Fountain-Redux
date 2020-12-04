@@ -2,6 +2,7 @@ import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import sodaListReducer from '../../reducers/soda-list-reducer';
+import * as c from '../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
 
@@ -20,5 +21,19 @@ describe("rootReducer", () => {
 
   test('Check that initial state of formVisibleReducer matches root reducer', () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
+  });
+
+  test('Check that ADD_SODA action works for sodaListReducer and root reducer', () => {
+    const action = {
+      type: c.ADD_SODA,
+      name: 'Dr. Pepper',
+      brand: 'Pepsi',
+      sugarContent: '44',
+      pints: '126',
+      price: '2.49',
+      id: 1
+    }
+    store.dispatch(action);
+    expect(store.getState().masterSodaList).toEqual(sodaListReducer(undefined, action));
   });
 });
