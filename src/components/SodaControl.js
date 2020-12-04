@@ -79,10 +79,9 @@ class SodaControl extends React.Component {
     })
       this.setState({
       masterSodaList: editedMasterSodaList,
-      // editing: false,
-      // selectedSoda: null
     });
   }
+
   handleEditClick = () => {
     this.setState({editing: true});
   }
@@ -107,7 +106,7 @@ class SodaControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <br></br>
-        <button class="btn-info" onClick={this.handleClick}>{buttonText}</button>
+        <button className="btn-info" onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
