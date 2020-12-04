@@ -6,6 +6,7 @@ import EditSodaForm from './EditSodaForm';
 import { connect } from 'react-redux';
 import * as c from './../actions/ActionTypes';
 import PropTypes from "prop-types";
+import * as a from './../actions';
 
 class SodaControl extends React.Component {
 
@@ -13,8 +14,6 @@ class SodaControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      // formVisibleOnPage: false,
-      // masterSodaList: [],
       selectedSoda: null,
       editing: false
     };
@@ -22,20 +21,9 @@ class SodaControl extends React.Component {
 
   handleAddingNewSodaToList = (newSoda) => {
     const { dispatch } = this.props;
-    const { id, name, brand, sugarContent, pints, price } = newSoda;
-    const action = {
-      type: c.ADD_SODA,
-      id: id,
-      name: name,
-      brand: brand,
-      sugarContent: sugarContent,
-      pints: pints,
-      price: price
-    }
+    const action = a.addSoda(newSoda);
     dispatch(action);
-    const action2 = {
-      type: c.TOGGLE_FORM
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
@@ -51,19 +39,14 @@ class SodaControl extends React.Component {
       });
     } else {
       const { dispatch } = this.props;
-      const action = {
-        type: c.TOGGLE_FORM
-      }
+      const action = a.toggleForm();
       dispatch(action);
     }
   }
   
   handleDeletingSoda = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: c.DELETE_SODA,
-      id: id
-    }
+    const action = a.deleteSoda(id);
     dispatch(action);
     this.setState({
       selectedSoda: null
@@ -72,16 +55,7 @@ class SodaControl extends React.Component {
   
   handleEditingSodaInList = (sodaToEdit) => {
     const { dispatch } = this.props;
-    const { id, name, brand, sugarContent, pints, price } = sodaToEdit;
-    const action = {
-      type: c.ADD_SODA,
-      id: id,
-      name: name,
-      brand: brand,
-      sugarContent: sugarContent,
-      pints: pints,
-      price: price
-    }
+    const action = a.addSoda(sodaToEdit)
     dispatch(action);
     this.setState({
       editing: false,
