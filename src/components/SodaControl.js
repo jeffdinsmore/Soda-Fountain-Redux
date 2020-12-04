@@ -14,8 +14,8 @@ class SodaControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      selectedSoda: null,
-      editing: false
+      // selectedSoda: null,
+      // editing: false
     };
   }
 
@@ -34,8 +34,8 @@ class SodaControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedSoda != null) {
       this.setState({
-        selectedSoda: null,
-        editing: false
+        // selectedSoda: null,
+        // editing: false
       });
     } else {
       const { dispatch } = this.props;
@@ -49,13 +49,13 @@ class SodaControl extends React.Component {
     const action = a.deleteSoda(id);
     dispatch(action);
     this.setState({
-      selectedSoda: null
+      // selectedSoda: null
     });
   }
   
   handleEditingSodaInList = (sodaToEdit) => {
     const { dispatch } = this.props;
-    const action = a.addSoda(sodaToEdit)
+    const action = a.addSoda(sodaToEdit);
     dispatch(action);
     this.setState({
       editing: false,

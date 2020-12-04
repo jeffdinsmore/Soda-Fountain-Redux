@@ -15,9 +15,18 @@ export default (state = {}, action) => {
           id: id
         }
       });
-      
-    
-    //   return 
+    case c.DELETE_SODA:
+      const newState = { ...state, selectedSoda: null };
+      delete newState[id];
+      return newState;
+    default:
+      return state;
+  }
+};
+
+// const newMasterSodaList = this.state.masterSodaList.concat(newSoda);
+
+ //   return 
     //   const editedMasterSodaList = this.state.masterSodaList
     //   editedMasterSodaList.map((soda) => {
     //     if(soda.id === id) {
@@ -32,13 +41,3 @@ export default (state = {}, action) => {
     //       }
     //     }
     //   return soda;
-    case c.DELETE_SODA:
-      const newState = { ...state };
-      delete newState[id];
-      return newState;
-    default:
-      return state;
-  }
-};
-
-// const newMasterSodaList = this.state.masterSodaList.concat(newSoda);
