@@ -6,7 +6,7 @@ function SodaList(props) {
   return (
     <React.Fragment>
       <hr/>
-      {props.sodaList.map((soda) =>
+      {Object.values(props.sodaList).map((soda) =>
         <Soda
           whenSodaClicked = { props.onSodaSelection }
           name={soda.name}
@@ -22,7 +22,7 @@ function SodaList(props) {
 }
 
 SodaList.propTypes = {
-  sodaList: PropTypes.array,
+  sodaList: PropTypes.object,
   onSodaSelection: PropTypes.func
 };
 

@@ -5,6 +5,7 @@ import SodaDetail from './SodaDetail';
 import EditSodaForm from './EditSodaForm';
 import { connect } from 'react-redux';
 import * as c from './../actions/ActionTypes';
+import PropTypes from "prop-types";
 
 class SodaControl extends React.Component {
 
@@ -21,7 +22,7 @@ class SodaControl extends React.Component {
 
   handleAddingNewSodaToList = (newSoda) => {
     const { dispatch } = this.props;
-    const { name, brand, sugarContent, pints, price, id } = newSoda;
+    const { id, name, brand, sugarContent, pints, price } = newSoda;
     const action = {
       type: c.ADD_SODA,
       id: id,
@@ -38,7 +39,7 @@ class SodaControl extends React.Component {
   }
 
   handleChangingSelectedSoda = (id) => {
-    const selectedSoda = this.state.masterSodaList.filter(soda => soda.id === id)[0];
+    const selectedSoda = this.props.masterSodaList[id];
     this.setState({ selectedSoda: selectedSoda });
   }
   handleClick = () => {
@@ -56,19 +57,31 @@ class SodaControl extends React.Component {
   }
   
   handleDeletingSoda = (id) => {
-    const newMasterSodaList = this.state.masterSodaList.filter(soda => soda.id !== id);
+    const { dispatch } = this.props;
+    const action = {
+      type: c.DELETE_SODA,
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      masterSodaList: newMasterSodaList,
       selectedSoda: null
     });
   }
   
   handleEditingSodaInList = (sodaToEdit) => {
-    const editedMasterSodaList = this.state.masterSodaList
-    .filter(soda => soda.id !== this.state.selectedSoda.id)
-    .concat(sodaToEdit);
+    const { dispatch } = this.props;
+    const { id, name, brand, sugarContent, pints, price } = sodaToEdit;
+    const action = {
+      type: c.ADD_SODA,
+      id: id,
+      name: name,
+      brand: brand,
+      sugarContent: sugarContent,
+      pints: pints,
+      price: price
+    }
+    dispatch(action);
     this.setState({
-      masterSodaList: editedMasterSodaList,
       editing: false,
       selectedSoda: null
     });
@@ -112,7 +125,7 @@ class SodaControl extends React.Component {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
       buttonText = "Return to Soda List";
     } else {
-      currentlyVisibleState = <SodaList sodaList={this.state.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} />;
+      currentlyVisibleState = <SodaList sodaList={this.props.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} />;
       buttonText = "Add Soda";
     }
     return (
@@ -123,9 +136,17 @@ class SodaControl extends React.Component {
       </React.Fragment>
     );
   }
+}
+SodaControl.propTypes = {
+  masterSodaList: PropTypes.object
+};
 
+const mapStateToProps = state => {
+  return {
+    masterSodaList: state
+  }
 }
 
-SodaControl = connect()(SodaControl);
+SodaControl = connect(mapStateToProps)(SodaControl);
 
 export default SodaControl;
