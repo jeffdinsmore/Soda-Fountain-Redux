@@ -14,4 +14,16 @@ describe('soda fountain actions', () => {
       type: 'TOGGLE_FORM'
     });
   });
+
+  it('addSoda should create ADD_SODA action', () => {
+    expect(actions.addSoda({name: 'Dr. Pepper', brand: 'Pepsi', sugarContent: '44', pints: '126', price: '2.49', id: 1})).toEqual({
+      type: c.ADD_SODA,
+      name: 'Dr. Pepper',
+      brand: 'Pepsi',
+      sugarContent: '44',
+      pints: '126',
+      price: '2.49',
+      id: 1
+    });
+  });
 });
