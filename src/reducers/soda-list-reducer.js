@@ -14,10 +14,10 @@ export default (state = {}, action) => {
           id: id
         }
       });
-    // case c.DELETE_SODA:
-    //   const newState = { ...state };
-    //   delete newState[id];
-    //   return newState;
+    case c.DELETE_SODA:
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
     default:
       return state;
   }
