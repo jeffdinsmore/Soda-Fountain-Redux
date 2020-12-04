@@ -14,7 +14,7 @@ class SodaControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      // selectedSoda: null,
+      selectedSoda: null,
       // editing: false
     };
   }
@@ -31,10 +31,14 @@ class SodaControl extends React.Component {
     const selectedSoda = this.props.masterSodaList[id];
     this.setState({ selectedSoda: selectedSoda });
   }
+  
   handleClick = () => {
-    if (this.state.selectedSoda != null) {
+    const { dispatch } = this.props;
+    if (this.props.selectedSoda != null) {
+      const action = a.editing();
+      dispatch(action);
       this.setState({
-        // selectedSoda: null,
+        selectedSoda: null,
         // editing: false
       });
     } else {
@@ -49,7 +53,7 @@ class SodaControl extends React.Component {
     const action = a.deleteSoda(id);
     dispatch(action);
     this.setState({
-      // selectedSoda: null
+      selectedSoda: null
     });
   }
   
@@ -57,8 +61,10 @@ class SodaControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.addSoda(sodaToEdit);
     dispatch(action);
+    const action2 = a.editing();
+    dispatch(action2);
     this.setState({
-      editing: false,
+      // editing: false,
       selectedSoda: null
     });
   }
@@ -90,17 +96,20 @@ class SodaControl extends React.Component {
   // }
 
   handleEditClick = () => {
-    this.setState({editing: true});
+    const { dispatch } = this.props;
+    const action = a.editing();
+    dispatch(action);
+    // this.setState({editing: true});
   }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.editing ) {      
-      currentlyVisibleState = <EditSodaForm soda = {this.state.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
+    if (this.props.editing ) {      
+      currentlyVisibleState = <EditSodaForm soda = {this.props.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
       buttonText = "Return to Soda List";
-    } else if (this.state.selectedSoda != null) {
-      currentlyVisibleState = <SodaDetail soda = {this.state.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} onClickingSellPint = {this.handleSellPintClick} />
+    } else if (this.props.selectedSoda != null) {
+      currentlyVisibleState = <SodaDetail soda = {this.props.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} onClickingSellPint = {this.handleSellPintClick} />
       buttonText = "Return to Soda List";
     } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
@@ -120,7 +129,8 @@ class SodaControl extends React.Component {
 }
 SodaControl.propTypes = {
   masterSodaList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  editing: PropTypes.bool
 };
 
 const mapStateToProps = state => {
