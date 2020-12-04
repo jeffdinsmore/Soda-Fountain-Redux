@@ -1,4 +1,9 @@
 import rootReducer from '../../reducers/index';
+import { createStore } from 'redux';
+import formVisibleReducer from '../../reducers/form-visible-reducer';
+import sodaListReducer from '../../reducers/soda-list-reducer';
+
+let store = createStore(rootReducer);
 
 describe("rootReducer", () => {
 
@@ -9,4 +14,7 @@ describe("rootReducer", () => {
     });
   });
 
+  test('Check that initial state of sodaListReducer matches root reducer', () => {
+    expect(store.getState().masterSodaList).toEqual(sodaListReducer(undefined, { type: null }));
+  });
 });
