@@ -12,13 +12,13 @@ function SodaDetail(props){
       <p><strong>Sugar Content:</strong> {soda.sugarContent}g per pint</p>
       <p><strong>Total Pints:</strong> {soda.pints} pints</p>
       <p><strong>Price:</strong> {soda.price}/pint</p>
-      <button className="btn-success" onClick={()=> onClickingSellPint(soda) }>Sell Pint</button>&nbsp;&nbsp;
+      <button className="btn-success" onClick={()=> onClickingSellPint(soda.id) }>Sell Pint</button>&nbsp;&nbsp;
       <button onClick={ props.onClickingEdit }>Update Soda</button>&nbsp;&nbsp;
       <button onClick={()=> onClickingDelete(soda.id) }>Remove Soda</button>
       <hr/>
     </React.Fragment>
   );
-  console.log(soda.id);
+  // console.log(soda.id);
 }
 
 SodaDetail.propTypes = {

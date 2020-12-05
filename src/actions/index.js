@@ -33,6 +33,6 @@ export const addSoda = (soda) => {
       id: id
   }
 }
-export const editing = () => ({
-  type: c.EDITING
+export const toggleEditing = () => ({
+  type: c.TOGGLE_EDITING
 })
