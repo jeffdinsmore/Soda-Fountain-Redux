@@ -1,5 +1,5 @@
 import editingReducer from '../../reducers/editing-reducer';
-// import * as c from '../../actions/ActionTypes';
+import * as c from '../../actions/ActionTypes';
 
 describe("editingReducer", () => {
 
@@ -8,6 +8,6 @@ describe("editingReducer", () => {
   });
 
   test('Should toggle editing state to true', () => {
-    expect(editingReducer(false, { type: 'TOGGLE_EDITING' })).toEqual(true);
+    expect(editingReducer(false, { type: c.EDITING })).toEqual(true);
   });
 });

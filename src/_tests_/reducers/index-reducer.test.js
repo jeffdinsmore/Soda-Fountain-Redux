@@ -49,7 +49,7 @@ describe("rootReducer", () => {
 
   test('Check that default editing state works for editingReducer and rootReducer', () => {
     const action = {
-      type: c.TOGGLE_EDITING
+      type: c.EDITING
     };
     store.dispatch(action);
     expect(store.getState().editing).toEqual(editingReducer(false, action));
@@ -57,7 +57,7 @@ describe("rootReducer", () => {
 
   test('Check toggle editing state to true with rootReducer', () => {
     const action = {
-      type: c.TOGGLE_EDITING
+      type: c.EDITING
     };
     store.dispatch(action);
     expect(store.getState().editing).toEqual(editingReducer(true, action ));

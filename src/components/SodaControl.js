@@ -15,7 +15,7 @@ class SodaControl extends React.Component {
     console.log(props);
     this.state = {
       selectedSoda: null,
-      editing: false
+      // editing: false
     };
   }
 
@@ -33,13 +33,13 @@ class SodaControl extends React.Component {
   }
 
   handleClick = () => {
-    // const { dispatch } = this.props;
+    const { dispatch } = this.props;
     if (this.state.selectedSoda != null) {
-      // const action = a.editing();
-      // dispatch(action);
+      const action = a.editing();
+      dispatch(action);
       this.setState({
         selectedSoda: null,
-        editing: false
+        // editing: false
       });
     } else {
       const { dispatch } = this.props;
@@ -61,10 +61,10 @@ class SodaControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.addSoda(sodaToEdit);
     dispatch(action);
-    // const action2 = a.editing();
-    // dispatch(action2);
+    const action2 = a.editing();
+    dispatch(action2);
     this.setState({
-      editing: false,
+      // editing: false,
       selectedSoda: null
     });
   }
@@ -96,16 +96,16 @@ class SodaControl extends React.Component {
   // }
 
   handleEditClick = () => {
-    // const { dispatch } = this.props;
-    // const action = a.editing();
-    // dispatch(action);
-    this.setState({editing: true});
+    const { dispatch } = this.props;
+    const action = a.editing();
+    dispatch(action);
+    // this.setState({editing: true});
   }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.editing ) {      
+    if (this.props.editing ) {      
       currentlyVisibleState = <EditSodaForm soda = {this.state.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
       buttonText = "Return to Soda List";
     } else if (this.state.selectedSoda != null) {
@@ -130,13 +130,14 @@ class SodaControl extends React.Component {
 SodaControl.propTypes = {
   masterSodaList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool,
-  // editing: PropTypes.bool
+  editing: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
     masterSodaList: state.masterSodaList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    editing: state.editing
   }
 }
 
