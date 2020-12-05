@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import sodaListReducer from '../../reducers/soda-list-reducer';
 import * as c from '../../actions/ActionTypes';
+import editingReducer from '../../reducers/editing-reducer';
 
 let store = createStore(rootReducer);
 
@@ -44,5 +45,13 @@ describe("rootReducer", () => {
     }
     store.dispatch(action);
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+  });
+
+  test('Check that default editing state works for editingReducer and rootReducer', () => {
+    const action = {
+      type: c.TOGGLE_EDITING
+    };
+    store.dispatch(action);
+    expect(store.getState().editing).toEqual(editingReducer(false, action));
   });
 });
