@@ -8,7 +8,7 @@ function Soda(props) {
         <p><strong>Soda:</strong> {props.name}</p>
         <p><strong>Total Pints:</strong> {props.pints} pints</p>
         <p><strong>Price:</strong> ${props.price}/pint</p>
-        <button onClick = {() => props.whenSodaClicked(props.id)}>Detials</button>
+        <button onClick = {() => props.whenSodaClicked(props.id)}>Details</button>
         <hr/>
     </React.Fragment>
   )

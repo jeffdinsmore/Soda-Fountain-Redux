@@ -4,6 +4,7 @@ import formVisibleReducer from '../../reducers/form-visible-reducer';
 import sodaListReducer from '../../reducers/soda-list-reducer';
 import * as c from '../../actions/ActionTypes';
 import editingReducer from '../../reducers/editing-reducer';
+import selectSodaReducer from '../../reducers/select-soda-reducer';
 
 let store = createStore(rootReducer);
 
@@ -13,7 +14,8 @@ describe("rootReducer", () => {
     expect(rootReducer({}, { type: null })).toEqual({
       editing: false,
       masterSodaList: {},
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      selectedSoda: null
     });
   });
 

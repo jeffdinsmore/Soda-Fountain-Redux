@@ -21,8 +21,8 @@ export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });
 
-export const addSoda = (soda) => {
-  const { name, brand, sugarContent, pints, price, id } = soda;
+export const addSoda = (newSoda) => {
+  const { name, brand, sugarContent, pints, price, id } = newSoda;
   return {
     type: c.ADD_SODA,
       name: name,
@@ -33,6 +33,34 @@ export const addSoda = (soda) => {
       id: id
   }
 }
-export const editing = () => ({
-  type: c.EDITING
-})
+
+export const editing = () => {
+  return {
+    type: c.EDITING
+  }
+}
+
+export const editingSetFalse = () => {
+  return {
+    type: c.EDITING_SET_FALSE
+  }
+}
+
+export const selectSoda = (soda) => {
+  const { name, brand, sugarContent, pints, price, id } = soda;
+  return {
+    type: c.SELECT_SODA,
+      name: name,
+      brand: brand,
+      sugarContent: sugarContent,
+      pints: pints,
+      price: price,
+      id: id
+  }
+}
+
+export const unSelectedSoda = () => {
+  return {
+    type: c.UNSELECT_SODA,
+  }
+}

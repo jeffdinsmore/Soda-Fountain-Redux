@@ -8,3 +8,14 @@ export default (state = false, action) => {
       return state;
   };
 }
+
+// export default (state = false, action) => {
+//   switch (action.type) {
+//   case c.EDITING:
+//     return !state;
+//   case c.EDITING_SET_FALSE:
+//     return false;
+//   default:
+//     return state;
+//   }
+// };
