@@ -64,4 +64,10 @@ describe("rootReducer", () => {
     store.dispatch(action);
     expect(store.getState().editing).toEqual(editingReducer(true, action ));
   });
+
+  test('Check the inital state of selectSodaReducer matches root reducer', () => {
+    expect(store.getState().selectedSoda).toEqual(selectSodaReducer(undefined, {type: null}));
+  });
+
+  
 });

@@ -4,13 +4,35 @@ import * as c from '../../actions/ActionTypes';
 describe('selectSodaReducer', () => {
 
   let action;
-  [{name: "Main Bar 1", brand: "Quality Booch", sugarContent: "Persimmon", pints: 123, price: "9", id:"1" }]
+  [{
+    name: "Pepsi", brand: "Pepsi", sugarContent: "55", pints: 123, price: "4", id:"1" 
+  }]
   const currentState = {
-    1: {name: "Main Bar 1", brand: "Quality Booch", sugarContent: "Persimmon", pints: 123, price: "9", id:"1" },
-    2: {name: "Main Bar 2", brand: "Quality Booch", sugarContent: "Lemon", pints: 123, price: "9", id:"2" }
+    1: {
+      name: "Pepsi",
+      brand: "Pepsi",
+      sugarContent: "49",
+      pints: 123,
+      price: "3.49",
+      id:"1"
+    },
+    2: {
+      name: "Dr. Pepper",
+      brand: "Pepsi",
+      sugarContent: "44",
+      pints: 122,
+      price: "3.49",
+      id:"2"
+    }
   }
 
-  const sodaData = {name: "Main Bar 1", brand: "Quality Booch", sugarContent: "Persimmon", pints: 123, price: "9", id:"1" };
+  const sodaData = {
+    name: "Pepsi",
+    brand: "Pepsi",
+    sugarContent: "49",
+    pints: 123,
+    price: "3.49",
+    id:"1" };
 
   test('Should return default state if no action type is recognized', () => {
     expect(selectSodaReducer({}, { type: null })).toEqual({});
@@ -38,15 +60,8 @@ describe('selectSodaReducer', () => {
   });
 
   test('Should successfully update selected soda to null when unselecting', () => {
-    // const { name, brand, flavor, price, quantity, id } = sodaData;
     action = {
       type: c.UNSELECT_SODA,
-      // name: name,
-      // brand: brand,
-      // flavor: flavor,
-      // price: price,
-      // quantity: quantity,
-      // id: id
     };
     expect(selectSodaReducer({}, action)).toEqual(null);
   });
