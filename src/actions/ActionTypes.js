@@ -4,6 +4,5 @@ export const TOGGLE_FORM = 'TOGGLE_FORM';
 export const SELL_PINT = 'SELL_PINT';
 export const EDITING = 'EDITING';
 export const EDITING_FALSE = 'EDITING_FALSE';
-export const EDITING_SET_FALSE = 'EDITING_SET_FALSE'
 export const SELECT_SODA = 'SELECT_SODA';
 export const UNSELECT_SODA = 'UNSELECT_SODA';

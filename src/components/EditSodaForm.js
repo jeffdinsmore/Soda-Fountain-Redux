@@ -21,13 +21,15 @@ function EditSodaForm(props){
     <React.Fragment>
       <ReusableForm 
         formSubmissionHandler={handleEditSodaFormSubmission} 
-        buttonText="Update Soda" />
+        buttonText="Update Soda"
+        soda={soda} />
     </React.Fragment>
   );
 }
 
 EditSodaForm.propTypes = {
-  onEditSoda: PropTypes.func
+  onEditSoda: PropTypes.func,
+  soda: PropTypes.object
 };
 
 export default EditSodaForm;

@@ -69,7 +69,7 @@ describe("rootReducer", () => {
     expect(store.getState().selectedSoda).toEqual(selectSodaReducer(undefined, {type: null}));
   });
 
-  test('Check that selected soda works for selectedSodaReducer and root reducer', () => {
+  test('Check that selectedSoda works for selectedSodaReducer and root reducer', () => {
     const action = {
       type: c.SELECT_SODA,
       name: 'Dr. Pepper',

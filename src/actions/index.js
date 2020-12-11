@@ -1,10 +1,5 @@
 import * as c from './../actions/ActionTypes';
 
-export const deleteSoda = id => ({
-  type: c.DELETE_SODA,
-  id
-});
-
 export const sellPint = (soda) => {
   const { name, brand, sugarContent, pints, price, id } = soda;
   return {
@@ -19,6 +14,11 @@ export const sellPint = (soda) => {
 }
 export const toggleForm = () => ({
   type: c.TOGGLE_FORM
+});
+
+export const deleteSoda = id => ({
+  type: c.DELETE_SODA,
+  id
 });
 
 export const addSoda = (newSoda) => {
@@ -40,9 +40,9 @@ export const editing = () => {
   }
 }
 
-export const editingSetFalse = () => {
+export const editingFalse = () => {
   return {
-    type: c.EDITING_SET_FALSE
+    type: c.EDITING_FALSE
   }
 }
 
