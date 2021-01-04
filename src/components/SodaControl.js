@@ -66,7 +66,6 @@ class SodaControl extends React.Component {
   }
   
   handleSellPintClick = (id) => {
-    console.log(id);
     const { dispatch } = this.props;
     const action = a.addSoda(id);
     const action2 = a.unSelectedSoda();
@@ -81,27 +80,6 @@ class SodaControl extends React.Component {
     dispatch(action);
     dispatch(action2);
   }
-    // const editedMasterSodaList = this.props.masterSodaList
-    // console.log(this.props.masterSodaList);
-    // editedMasterSodaList.map((soda) => {
-    //   if(soda.id === id) {
-    //     if (soda.pints <= 11 && soda.pints > 0) {
-    //     soda.status = "Almost out of pints";
-    //     soda.pints = soda.pints -1;
-    //     } else if (soda.pints > 0) {
-    //     soda.pints = soda.pints -1;
-    //     } else {
-    //     soda.pints = 0;
-    //     soda.status = "Out of stock!"
-    //     }
-    //   }
-    //   return soda;
-    // })
-    //   this.setState({
-    //   masterSodaList: editedMasterSodaList,
-    // });
-  // }
-
   
   render() {
     let currentlyVisibleState = null;

@@ -42,7 +42,6 @@ Soda.propTypes = {
   sugarContent: PropTypes.string,
   pints: PropTypes.string,
   price: PropTypes.string,
-  // key: PropTypes.string,
   id: PropTypes.string,
   whenSodaSellClicked: PropTypes.func,
   onClickingSellPint: PropTypes.func,

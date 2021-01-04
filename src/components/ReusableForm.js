@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ReusableForm(props) {
-  console.log("props", props);
-  console.log("soda props: ", props.soda);
   let formHandle;
   if (props.soda) {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
