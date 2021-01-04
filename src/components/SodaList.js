@@ -23,7 +23,8 @@ function SodaList(props) {
 
 SodaList.propTypes = {
   sodaList: PropTypes.object,
-  onSodaSelection: PropTypes.func
+  onSodaSelection: PropTypes.func,
+  
 };
 
 export default SodaList;

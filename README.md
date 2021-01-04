@@ -36,6 +36,7 @@ _Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsm
 * _CSS_
 * _VS Code_
 * _React_
+* _Redux_
 
 ## License
 

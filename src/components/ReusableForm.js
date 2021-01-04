@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ReusableForm(props) {
+  console.log("props", props);
+  console.log("soda props: ", props.soda);
   let formHandle;
   if (props.soda) {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
@@ -37,7 +39,7 @@ function ReusableForm(props) {
         type='text'
         name='price'
         placeholder='Price per pint'
-        defaultValue={props.soda.pints}
+        defaultValue={props.soda.price}
         required='required' />
       <br></br>
       <button className="btn-success" type='submit'>{props.buttonText}</button>

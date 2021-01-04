@@ -1,10 +1,40 @@
 import * as c from './../actions/ActionTypes';
 
-export default (state = {}, action) => {
+const defaultState = {
+  "1": {
+    name: "Dr. Pepper",
+    brand: "Pepsi",
+    sugarContent: "59",
+    pints: "17",
+    price: "2.29",
+    id: "1"},
+  "2": {
+    name: "Pepsi",
+    brand: "Pepsi",
+    sugarContent: "55",
+    pints: "3",
+    price: "2.29",
+    id: "2"},
+  "3": {
+    name: "Mt. Dew",
+    brand: "Pepsi",
+    sugarContent: "64",
+    pints: "124",
+    price: "2.29",
+    id: "3"},
+  "4": {
+    name: "Diet Pepsi",
+    brand: "Pepsi",
+    sugarContent: "0",
+    pints: "108",
+    price: "2.29",
+    id: "4"}
+}
+
+export default (state = defaultState, action) => {
   const { name, brand, sugarContent, pints, price, id } = action;
   switch (action.type) {
     case c.ADD_SODA:
-      console.log("action1: ", action.pints);
       return Object.assign({}, state, {
         [id]: {
           name: name,
@@ -23,21 +53,3 @@ export default (state = {}, action) => {
       return state;
   }
 };
-
-// const newMasterSodaList = this.state.masterSodaList.concat(newSoda);
-
- //   return 
-    //   const editedMasterSodaList = this.state.masterSodaList
-    //   editedMasterSodaList.map((soda) => {
-    //     if(soda.id === id) {
-    //       if (soda.pints <= 11 && soda.pints > 0) {
-    //       soda.status = "Almost out of pints";
-    //       soda.pints = soda.pints -1;
-    //       } else if (soda.pints > 0) {
-    //       soda.pints = soda.pints -1;
-    //       } else {
-    //       soda.pints = 0;
-    //       soda.status = "Out of stock!"
-    //       }
-    //     }
-    //   return soda;

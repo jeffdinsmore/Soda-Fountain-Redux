@@ -50,12 +50,12 @@ export const selectSoda = (soda) => {
   const { name, brand, sugarContent, pints, price, id } = soda;
   return {
     type: c.SELECT_SODA,
-      name: name,
-      brand: brand,
-      sugarContent: sugarContent,
-      pints: pints,
-      price: price,
-      id: id
+    name: name,
+    brand: brand,
+    sugarContent: sugarContent,
+    pints: pints,
+    price: price,
+    id: id
   }
 }
 

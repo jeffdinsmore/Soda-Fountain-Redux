@@ -9,14 +9,6 @@ import * as a from './../actions';
 
 class SodaControl extends React.Component {
 
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = {
-      // editing: false
-    };
-  }
-
   handleClick = () => {
     const { dispatch } = this.props;
     const action = a.editing();
@@ -27,9 +19,6 @@ class SodaControl extends React.Component {
       if (this.props.editing === true) {
         dispatch(action);
       }
-      // this.setState({
-      //   editing: false
-      // });
     } else {
       dispatch(action3);
     }
@@ -112,8 +101,6 @@ class SodaControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    console.log("Editing", this.state.editing);
-    console.log("Editing2", this.props.editing);
     if (this.props.editing ) {      
       currentlyVisibleState = <EditSodaForm soda = {this.props.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
       buttonText = "Return to Soda List";

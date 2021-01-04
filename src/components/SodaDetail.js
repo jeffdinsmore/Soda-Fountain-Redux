@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 function SodaDetail(props){
   const { soda, onClickingDelete, onClickingSellPint } = props;
-  // console.log(props.name);
   return (
     <React.Fragment>
       <h1>Soda Detail</h1>
@@ -18,7 +17,6 @@ function SodaDetail(props){
       <hr/>
     </React.Fragment>
   );
-  // console.log(soda.id);
 }
 
 SodaDetail.propTypes = {
