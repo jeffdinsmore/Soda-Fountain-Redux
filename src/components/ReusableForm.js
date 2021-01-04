@@ -42,7 +42,7 @@ function ReusableForm(props) {
         defaultValue={props.soda.price}
         required='required' />
       <br></br>
-      <button className="btn-success" type='submit'>{props.buttonText}</button>
+      <button className="btn btn-success btn-sm" type='submit'>{props.buttonText}</button>
     </form>
   } else {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
@@ -76,7 +76,7 @@ function ReusableForm(props) {
         placeholder='Price per pint'
         required='required' />
       <br></br>
-      <button className="btn-success" type='submit'>{props.buttonText}</button>
+      <button className="btn btn-success btn-sm" type='submit'>{props.buttonText}</button>
     </form>
   }
   return (

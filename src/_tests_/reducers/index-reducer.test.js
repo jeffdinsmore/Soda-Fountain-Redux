@@ -13,7 +13,36 @@ describe("rootReducer", () => {
   test('Should return default state if no action type is recognized', () => {
     expect(rootReducer({}, { type: null })).toEqual({
       editing: false,
-      masterSodaList: {},
+      masterSodaList: {
+        "1": {
+          name: "Dr. Pepper",
+          brand: "Pepsi",
+          sugarContent: "59",
+          pints: "17",
+          price: "2.29",
+          id: "1"},
+        "2": {
+          name: "Pepsi",
+          brand: "Pepsi",
+          sugarContent: "55",
+          pints: "3",
+          price: "2.29",
+          id: "2"},
+        "3": {
+          name: "Mt. Dew",
+          brand: "Pepsi",
+          sugarContent: "64",
+          pints: "124",
+          price: "2.29",
+          id: "3"},
+        "4": {
+          name: "Diet Pepsi",
+          brand: "Pepsi",
+          sugarContent: "0",
+          pints: "108",
+          price: "2.29",
+          id: "4"}
+      },
       formVisibleOnPage: false,
       selectedSoda: null
     });

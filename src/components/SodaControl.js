@@ -11,13 +11,13 @@ class SodaControl extends React.Component {
 
   handleClick = () => {
     const { dispatch } = this.props;
-    const action = a.editing();
-    const action2 = a.unSelectedSoda();
+    const action = a.unSelectedSoda();
+    const action2 = a.editing();
     const action3 = a.toggleForm();
     if (this.props.selectedSoda != null) {
-      dispatch(action2);
+      dispatch(action);
       if (this.props.editing === true) {
-        dispatch(action);
+        dispatch(action2);
       }
     } else {
       dispatch(action3);
@@ -53,28 +53,33 @@ class SodaControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.editing();
     dispatch(action);
-    // this.setState({editing: true});
   }
 
   handleEditingSodaInList = (sodaToEdit) => {
     const { dispatch } = this.props;
     const action = a.addSoda(sodaToEdit);
     dispatch(action);
-    // const action2 = a.editing();
-    // dispatch(action2);
     const action2 = a.unSelectedSoda();
     dispatch(action2);
     const action3 = a.editing();
     dispatch(action3);
-    // this.setState({
-    //   editing: false,
-    // });
   }
   
   handleSellPintClick = (id) => {
+    console.log(id);
     const { dispatch } = this.props;
-    const action = a.sellPint(id);
+    const action = a.addSoda(id);
+    const action2 = a.unSelectedSoda();
     dispatch(action);
+    dispatch(action2);
+  }
+
+  handleRefillKeg = (id) => {
+    const { dispatch } = this.props;
+    const action = a.addSoda(id);
+    const action2 = a.unSelectedSoda();
+    dispatch(action);
+    dispatch(action2);
   }
     // const editedMasterSodaList = this.props.masterSodaList
     // console.log(this.props.masterSodaList);
@@ -101,6 +106,7 @@ class SodaControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+
     if (this.props.editing ) {      
       currentlyVisibleState = <EditSodaForm soda = {this.props.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
       buttonText = "Return to Soda List";
@@ -111,14 +117,14 @@ class SodaControl extends React.Component {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
       buttonText = "Return to Soda List";
     } else {
-      currentlyVisibleState = <SodaList sodaList={this.props.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} />;
+      currentlyVisibleState = <SodaList sodaList={this.props.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} onClickingSellPint={this.handleSellPintClick} onClickingRefill={this.handleRefillKeg}/>;
       buttonText = "Add Soda";
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
         <br></br>
-        <button className="btn-info" onClick={this.handleClick}>{buttonText}</button>
+        <button className="btn btn-info btn-sm" onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }

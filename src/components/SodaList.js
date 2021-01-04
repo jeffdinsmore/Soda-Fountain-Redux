@@ -15,7 +15,10 @@ function SodaList(props) {
           pints={soda.pints}
           price={soda.price}
           id={soda.id}
-          key={soda.id}/>
+          key={soda.id}
+          whenSodaSellClicked={props.onClickingSellPint}
+          whenSodaRefillClicked={props.onClickingRefill}
+          />
       )}
     </React.Fragment>
   );
@@ -24,6 +27,8 @@ function SodaList(props) {
 SodaList.propTypes = {
   sodaList: PropTypes.object,
   onSodaSelection: PropTypes.func,
+  onClickingSellPint: PropTypes.func,
+  onClickingRefill: PropTypes.func
   
 };
 

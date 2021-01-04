@@ -2,14 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Soda(props) {
+  let sellButton;
+  let refillKeg;
+  if (parseInt(props.pints) !== 0) {
+    sellButton = <button className="btn btn-success btn-sm" onClick={() => props.whenSodaSellClicked({
+      name: props.name,
+      brand: props.brand,
+      sugarContent: props.sugarContent,
+      pints: (parseInt(props.pints) - 1).toString(),
+      price: props.price,
+      id: props.id
+    })}>Sell Pint</button>;
+  } else {
+    sellButton = <button disabled className="btn btn-secondary btn-sm" onClick={() => props.whenSodaSellClicked()}>Sell Pint</button>
+    refillKeg = <button className="btn btn-primary btn-sm" onClick={() => props.whenSodaRefillClicked({name: props.name,
+      brand: props.brand,
+      sugarContent: props.sugarContent,
+      pints: "124",
+      price: props.price,
+      id: props.id})}>Refill Keg</button>
+  }
   return (
-    
+
     <React.Fragment>
-        <p><strong>Soda:</strong> {props.name}</p>
-        <p><strong>Total Pints:</strong> {props.pints} pints</p>
-        <p><strong>Price:</strong> ${props.price}/pint</p>
-        <button onClick = {() => props.whenSodaClicked(props.id)}>Details</button>
-        <hr/>
+      <p><strong>Soda:</strong> {props.name}</p>
+      <p><strong>Total Pints:</strong> {props.pints} pints</p>
+      <p><strong>Price:</strong> ${props.price}/pint</p>
+      <button className="btn btn-secondary btn-sm" onClick={() => props.whenSodaClicked(props.id)}>Details</button>&nbsp;&nbsp;
+      {sellButton}&nbsp;&nbsp;
+      {refillKeg}
+      <hr />
     </React.Fragment>
   )
 }
@@ -20,8 +42,11 @@ Soda.propTypes = {
   sugarContent: PropTypes.string,
   pints: PropTypes.string,
   price: PropTypes.string,
+  // key: PropTypes.string,
   id: PropTypes.string,
-  whenSodaClicked: PropTypes.func
+  whenSodaSellClicked: PropTypes.func,
+  onClickingSellPint: PropTypes.func,
+  whenSodaRefillClicked: PropTypes.func
 }
 
 export default Soda;
