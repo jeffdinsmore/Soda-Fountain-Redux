@@ -4,6 +4,12 @@ import PropTypes from "prop-types";
 function Soda(props) {
   let sellButton;
   let refillKeg;
+  let kegLowWarning;
+  if (parseInt(props.pints) < 10 && parseInt(props.pints) > 0) {
+    kegLowWarning = "Keg is getting low!"
+  } else if (parseInt(props.pints) === 0) {
+    kegLowWarning = "Keg is empty!"
+  }
   if (parseInt(props.pints) !== 0) {
     sellButton = <button className="btn btn-success btn-sm" onClick={() => props.whenSodaSellClicked({
       name: props.name,
@@ -30,7 +36,8 @@ function Soda(props) {
       <p><strong>Price:</strong> ${props.price}/pint</p>
       <button className="btn btn-secondary btn-sm" onClick={() => props.whenSodaClicked(props.id)}>Details</button>&nbsp;&nbsp;
       {sellButton}&nbsp;&nbsp;
-      {refillKeg}
+      {refillKeg}&nbsp;&nbsp;
+      <strong>{kegLowWarning}</strong>
       <hr />
     </React.Fragment>
   )
