@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Soda(props) {
+  console.log(props);
   let sellButton;
   let refillKeg;
   let kegLowWarning;
@@ -31,6 +32,7 @@ function Soda(props) {
   return (
 
     <React.Fragment>
+      <div className="col mb-4">
       <p><strong>Soda:</strong> {props.name}</p>
       <p><strong>Total Pints:</strong> {props.pints} pints</p>
       <p><strong>Price:</strong> ${props.price}/pint</p>
@@ -38,7 +40,8 @@ function Soda(props) {
       {sellButton}&nbsp;&nbsp;
       {refillKeg}&nbsp;&nbsp;
       <strong>{kegLowWarning}</strong>
-      <hr />
+      </div>
+      
     </React.Fragment>
   )
 }

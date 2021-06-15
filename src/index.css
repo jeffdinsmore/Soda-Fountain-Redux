@@ -18,7 +18,9 @@ code {
   margin: 0px 0px 10px 0px;
 }
 
-
+.card {
+  width: 300px;
+}
 .btn-success{
   color:#fff;
   background-color:#28a745;

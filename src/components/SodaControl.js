@@ -95,12 +95,14 @@ class SodaControl extends React.Component {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
       buttonText = "Return to Soda List";
     } else {
-      currentlyVisibleState = <SodaList sodaList={this.props.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} onClickingSellPint={this.handleSellPintClick} onClickingRefill={this.handleRefillKeg}/>;
+      currentlyVisibleState = <SodaList sodaList={this.props.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} onClickingSellPint={this.handleSellPintClick} />;
       buttonText = "Add Soda";
     }
     return (
       <React.Fragment>
+        <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
         {currentlyVisibleState}
+        </div>
         <br></br>
         <button className="btn btn-info btn-sm" onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
