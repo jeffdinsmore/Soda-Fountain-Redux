@@ -4,15 +4,16 @@ import PropTypes from "prop-types";
 function Soda(props) {
   console.log(props);
   let sellButton;
-  let refillKeg;
-  let kegLowWarning;
+  let refillKeg = <button disabled className="btn btn-secondary btn-sm">Refill Keg</button>;
+  let kegLowWarning = "In Stock";
+  let detailsButton = <button className="btn btn-secondary btn-sm" onClick={() => props.whenSodaClicked(props.id)}>Details</button>
   if (parseInt(props.pints) < 10 && parseInt(props.pints) > 0) {
     kegLowWarning = "Keg is getting low!"
   } else if (parseInt(props.pints) === 0) {
     kegLowWarning = "Keg is empty!"
   }
   if (parseInt(props.pints) !== 0) {
-    sellButton = <button className="btn btn-success btn-sm w-50" onClick={() => props.whenSodaSellClicked({
+    sellButton = <button className="btn btn-success btn-sm" onClick={() => props.whenSodaSellClicked({
       name: props.name,
       brand: props.brand,
       sugarContent: props.sugarContent,
@@ -21,25 +22,26 @@ function Soda(props) {
       id: props.id
     })}>Sell Pint</button>;
   } else {
-    sellButton = <button disabled className="btn btn-secondary btn-sm w-50" onClick={() => props.whenSodaSellClicked()}>Sell Pint</button>
-    refillKeg = <button className="btn btn-primary btn-sm w-50" onClick={() => props.whenSodaRefillClicked({name: props.name,
+    sellButton = <button disabled className="btn btn-secondary btn-sm" onClick={() => props.whenSodaSellClicked()}>Sell Pint</button>
+    refillKeg = <button className="btn btn-primary btn-sm" onClick={() => props.whenSodaRefillClicked({
+      name: props.name,
       brand: props.brand,
       sugarContent: props.sugarContent,
       pints: "124",
       price: props.price,
-      id: props.id})}>Refill Keg</button>
+      id: props.id
+    })}>Refill Keg</button>
   }
   return (
-
     <React.Fragment>
-      <p><strong>Soda:</strong> {props.name}</p>
-      <p><strong>Total Pints:</strong> {props.pints} pints</p>
+      <h4 className="sodaName"><strong>{props.name}</strong></h4>
+      <strong><p>{kegLowWarning}</p></strong>
+      <p><strong>Pints:</strong> {props.pints} pints</p>
       <p><strong>Price:</strong> ${props.price}/pint</p>
-      <button className="btn btn-secondary btn-sm w-50" onClick={() => props.whenSodaClicked(props.id)}>Details</button>&nbsp;&nbsp;
       {sellButton}&nbsp;&nbsp;
+      {detailsButton}&nbsp;&nbsp;
       {refillKeg}&nbsp;&nbsp;
-      <strong>{kegLowWarning}</strong>
-      
+      <hr />
     </React.Fragment>
   )
 }

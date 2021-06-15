@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function SodaDetail(props){
-  const { soda, onClickingDelete, onClickingSellPint } = props;
+  const { soda, onClickingDelete } = props;
   return (
     <React.Fragment>
       <h1>Soda Detail</h1>
@@ -21,8 +21,7 @@ function SodaDetail(props){
 SodaDetail.propTypes = {
   soda: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func,
-  onClickingSellPint: PropTypes.func
+  onClickingEdit: PropTypes.func
 };
 
 export default SodaDetail;

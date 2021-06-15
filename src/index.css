@@ -13,17 +13,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+h4.sodaName {
+  margin: 0px 0px 20px 0px;
+}
 .field {
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 20px 0px;
 }
 
 .card {
-  width: 300px;
+  width: 400px;
   padding: 10px;
 }
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: DodgerBlue; */
+}
 
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  background-color: lightblue;
+  /* text-align: center; */
+  /* line-height: 75px; */
+  /* font-size: 30px; */
+}
 
+@media screen {
+  
+}
 /* .btn-success{
   color:#fff;
   background-color:#28a745;

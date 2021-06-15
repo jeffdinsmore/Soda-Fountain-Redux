@@ -6,25 +6,27 @@ function SodaList(props) {
   console.log("props2", props);
   return (
     <React.Fragment>
-      <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
-      {Object.values(props.sodaList).map((soda) =>
-      <div className="col mb-4">
-      <div className= "card shadow-lg h-200 text-left" style={{backgroundColor: "#eee222" }}>
-        <Soda
-          whenSodaClicked = { props.onSodaSelection }
-          name={soda.name}
-          brand={soda.brand}
-          sugarContent={soda.sugarContent}
-          pints={soda.pints}
-          price={soda.price}
-          id={soda.id}
-          key={soda.id}
-          whenSodaSellClicked={props.onClickingSellPint}
-          whenSodaRefillClicked={props.onClickingRefill}
-          />
+      {/* <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3"> */}
+      <div class="flex-container">
+        {Object.values(props.sodaList).map((soda) =>
+          // <div className="col mb-4">
+          //   <div className="card shadow-lg h-200 text-left" style={{ backgroundColor: "#eee222" }}>
+          <div>
+              <Soda
+                whenSodaClicked={props.onSodaSelection}
+                name={soda.name}
+                brand={soda.brand}
+                sugarContent={soda.sugarContent}
+                pints={soda.pints}
+                price={soda.price}
+                id={soda.id}
+                key={soda.id}
+                whenSodaSellClicked={props.onClickingSellPint}
+                whenSodaRefillClicked={props.onClickingRefill}
+              />
           </div>
-          </div>
-      )}
+          // </div>
+        )}
       </div>
     </React.Fragment>
   );

@@ -5,6 +5,8 @@ function ReusableForm(props) {
   let formHandle;
   if (props.soda) {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
+      <label htmlFor="name">Name</label>
+      <br />
       <input className="field"
         type='text'
         name='name'
@@ -12,6 +14,8 @@ function ReusableForm(props) {
         defaultValue={props.soda.name}
         required='required' />
       <br></br>
+      <label htmlFor="name">Brand</label>
+      <br />
       <input className="field"
         type='text'
         name='brand'
@@ -19,13 +23,17 @@ function ReusableForm(props) {
         defaultValue={props.soda.brand}
         required='required' />
       <br></br>
+      <label htmlFor="name">Sugar Content</label>
+      <br />
       <input className="field"
         type='text'
         name='sugarContent'
         placeholder='List sugar content'
         defaultValue={props.soda.sugarContent}
         required='required' />
-      <br></br>
+      <br />
+      <label htmlFor="name">Pints</label>
+      <br />
       <input className="field"
         type='number'
         name='pints'
@@ -33,6 +41,8 @@ function ReusableForm(props) {
         defaultValue={props.soda.pints}
         required='required' />
       <br></br>
+      <label htmlFor="name">Price</label>
+      <br />
       <input className="field"
         type='text'
         name='price'
@@ -44,6 +54,8 @@ function ReusableForm(props) {
     </form>
   } else {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
+      <label htmlFor="name">Name</label>
+      <br />
       <input className="field"
         type='text'
         name='name'
