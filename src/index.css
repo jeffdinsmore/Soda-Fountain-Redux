@@ -20,8 +20,11 @@ code {
 
 .card {
   width: 300px;
+  padding: 10px;
 }
-.btn-success{
+
+
+/* .btn-success{
   color:#fff;
   background-color:#28a745;
   border-color:#28a745
@@ -64,4 +67,4 @@ code {
 }
 .btn-info:not(:disabled):not(.disabled).active:focus,.btn-info:not(:disabled):not(.disabled):active:focus,.show>.btn-info.dropdown-toggle:focus{
   box-shadow:0 0 0 .2rem rgba(58,176,195,.5)
-}
+} */

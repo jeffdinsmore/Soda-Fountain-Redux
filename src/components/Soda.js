@@ -12,7 +12,7 @@ function Soda(props) {
     kegLowWarning = "Keg is empty!"
   }
   if (parseInt(props.pints) !== 0) {
-    sellButton = <button className="btn btn-success btn-sm" onClick={() => props.whenSodaSellClicked({
+    sellButton = <button className="btn btn-success btn-sm w-50" onClick={() => props.whenSodaSellClicked({
       name: props.name,
       brand: props.brand,
       sugarContent: props.sugarContent,
@@ -21,8 +21,8 @@ function Soda(props) {
       id: props.id
     })}>Sell Pint</button>;
   } else {
-    sellButton = <button disabled className="btn btn-secondary btn-sm" onClick={() => props.whenSodaSellClicked()}>Sell Pint</button>
-    refillKeg = <button className="btn btn-primary btn-sm" onClick={() => props.whenSodaRefillClicked({name: props.name,
+    sellButton = <button disabled className="btn btn-secondary btn-sm w-50" onClick={() => props.whenSodaSellClicked()}>Sell Pint</button>
+    refillKeg = <button className="btn btn-primary btn-sm w-50" onClick={() => props.whenSodaRefillClicked({name: props.name,
       brand: props.brand,
       sugarContent: props.sugarContent,
       pints: "124",
@@ -32,15 +32,13 @@ function Soda(props) {
   return (
 
     <React.Fragment>
-      <div className="col mb-4">
       <p><strong>Soda:</strong> {props.name}</p>
       <p><strong>Total Pints:</strong> {props.pints} pints</p>
       <p><strong>Price:</strong> ${props.price}/pint</p>
-      <button className="btn btn-secondary btn-sm" onClick={() => props.whenSodaClicked(props.id)}>Details</button>&nbsp;&nbsp;
+      <button className="btn btn-secondary btn-sm w-50" onClick={() => props.whenSodaClicked(props.id)}>Details</button>&nbsp;&nbsp;
       {sellButton}&nbsp;&nbsp;
       {refillKeg}&nbsp;&nbsp;
       <strong>{kegLowWarning}</strong>
-      </div>
       
     </React.Fragment>
   )
