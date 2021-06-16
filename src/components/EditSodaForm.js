@@ -21,7 +21,7 @@ function EditSodaForm(props){
     <React.Fragment>
       <ReusableForm 
         formSubmissionHandler={handleEditSodaFormSubmission} 
-        buttonText="Update Soda"
+        buttonText="Submit"
         soda={soda} />
     </React.Fragment>
   );

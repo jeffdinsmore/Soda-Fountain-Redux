@@ -41,7 +41,6 @@ function Soda(props) {
       {sellButton}&nbsp;&nbsp;
       {detailsButton}&nbsp;&nbsp;
       {refillKeg}&nbsp;&nbsp;
-      <hr />
     </React.Fragment>
   )
 }
