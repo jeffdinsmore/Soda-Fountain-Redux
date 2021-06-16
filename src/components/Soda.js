@@ -5,12 +5,12 @@ function Soda(props) {
   console.log(props);
   let sellButton;
   let refillKeg = <button disabled className="btn btn-secondary btn-sm">Refill Keg</button>;
-  let kegLowWarning = "In Stock";
+  let kegLowWarning = <p>In Stock</p>;
   let detailsButton = <button className="btn btn-secondary btn-sm" onClick={() => props.whenSodaClicked(props.id)}>Details</button>
   if (parseInt(props.pints) < 10 && parseInt(props.pints) > 0) {
-    kegLowWarning = "Keg is getting low!"
+    kegLowWarning = <p style={{color:"purple", fontSize: 16}}>Keg is getting low</p>;
   } else if (parseInt(props.pints) === 0) {
-    kegLowWarning = "Keg is empty!"
+    kegLowWarning = <p style={{color:"red", fontSize: 16}}>Out of Stock</p>;
   }
   if (parseInt(props.pints) !== 0) {
     sellButton = <button className="btn btn-success btn-sm" onClick={() => props.whenSodaSellClicked({
@@ -35,7 +35,7 @@ function Soda(props) {
   return (
     <React.Fragment>
       <h4 className="sodaName"><strong>{props.name}</strong></h4>
-      <strong><p>{kegLowWarning}</p></strong>
+      <strong>{kegLowWarning}</strong>
       <p><strong>Pints:</strong> {props.pints} pints</p>
       <p><strong>Price:</strong> ${props.price}/pint</p>
       {sellButton}&nbsp;&nbsp;
