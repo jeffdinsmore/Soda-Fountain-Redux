@@ -3,7 +3,6 @@ import Soda from "./Soda";
 import PropTypes from "prop-types";
 
 function SodaList(props) {
-  console.log("props2", props);
   return (
     <React.Fragment>
       <div class="flex-container">

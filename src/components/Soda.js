@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Soda(props) {
-  console.log(props);
   let sellButton;
   let refillKeg = <button disabled className="btn btn-secondary btn-sm">Refill Keg</button>;
   let kegLowWarning = <p>In Stock</p>;
