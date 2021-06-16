@@ -13,14 +13,14 @@ const MainBody = styled.section`
 function App() {
   return (
     <React.Fragment>
-      <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL + './../img/jarritos-mexican-soda-3fUD9LNlCL4-unsplash.jpg'})` }}>
+      {/* <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL + './../img/jarritos-mexican-soda-3fUD9LNlCL4-unsplash.jpg'})` }}> */}
       <Header />
       
       
       <MainBody>
       <SodaControl />
       </MainBody>
-      </div>
+      {/* </div> */}
     </React.Fragment>
   );
 }
