@@ -1,6 +1,6 @@
 # _Jeff's Soda Fountain_
 
-#### _Jeff's Soda Fountain website lists the kegs of soda at his soda bar and he can add, update, and delete each soda, 10/23/2020_
+#### _Jeff's Soda Fountain website lists the kegs of soda at his soda bar and he can add, update, and delete each soda; created: 10/23/2020, updated: 06/16/2021_
 
 #### By _Jeff Dinsmore_
 
@@ -33,6 +33,7 @@ _Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsm
 
 * _JavaScript_
 * _JSX_
+* _Bootstrap_
 * _CSS_
 * _VS Code_
 * _React_

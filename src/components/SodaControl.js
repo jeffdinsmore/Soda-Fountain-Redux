@@ -103,7 +103,7 @@ class SodaControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <br></br>
-        <button style={{marginLeft: "10px"}} className="btn btn-info btn-sm" onClick={this.handleClick}>{buttonText}</button>
+        <button style={{marginLeft: "10px"}} className="btn btn-info btn-md" onClick={this.handleClick}>{buttonText}</button>
         <br /><br /><br />
       </React.Fragment>
     );
