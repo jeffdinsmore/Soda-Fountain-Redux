@@ -8,18 +8,18 @@ function SodaList(props) {
       <div class="flex-container">
         {Object.values(props.sodaList).map((soda) =>
           <div>
-              <Soda
-                whenSodaClicked={props.onSodaSelection}
-                name={soda.name}
-                brand={soda.brand}
-                sugarContent={soda.sugarContent}
-                pints={soda.pints}
-                price={soda.price}
-                id={soda.id}
-                key={soda.id}
-                whenSodaSellClicked={props.onClickingSellPint}
-                whenSodaRefillClicked={props.onClickingRefill}
-              />
+            <Soda
+              whenSodaClicked={props.onSodaSelection}
+              name={soda.name}
+              brand={soda.brand}
+              sugarContent={soda.sugarContent}
+              pints={soda.pints}
+              price={soda.price}
+              id={soda.id}
+              key={soda.id}
+              whenSodaSellClicked={props.onClickingSellPint}
+              whenSodaRefillClicked={props.onClickingRefill}
+            />
           </div>
         )}
       </div>

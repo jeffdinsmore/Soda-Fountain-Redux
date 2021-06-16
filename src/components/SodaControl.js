@@ -39,7 +39,7 @@ class SodaControl extends React.Component {
     const action2 = a.unSelectedSoda();
     dispatch(action2);
   }
-  
+
   handleChangingSelectedSoda = (id) => {
     const { dispatch } = this.props;
     const selectedSoda = this.props.masterSodaList[id];
@@ -47,7 +47,7 @@ class SodaControl extends React.Component {
     dispatch(action);
   }
 
-  
+
 
   handleEditClick = () => {
     const { dispatch } = this.props;
@@ -64,7 +64,7 @@ class SodaControl extends React.Component {
     const action3 = a.editing();
     dispatch(action3);
   }
-  
+
   handleSellPintClick = (id) => {
     const { dispatch } = this.props;
     const action = a.addSoda(id);
@@ -80,30 +80,30 @@ class SodaControl extends React.Component {
     dispatch(action);
     dispatch(action2);
   }
-  
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.props.editing ) {      
-      currentlyVisibleState = <EditSodaForm soda = {this.props.selectedSoda} onEditSoda = {this.handleEditingSodaInList} />
+    if (this.props.editing) {
+      currentlyVisibleState = <EditSodaForm soda={this.props.selectedSoda} onEditSoda={this.handleEditingSodaInList} />
       buttonText = "Return to Soda List";
     } else if (this.props.selectedSoda != null) {
-      currentlyVisibleState = <SodaDetail soda = {this.props.selectedSoda} onClickingDelete = {this.handleDeletingSoda} onClickingEdit = {this.handleEditClick} onClickingSellPint = {this.handleSellPintClick} />
+      currentlyVisibleState = <SodaDetail soda={this.props.selectedSoda} onClickingDelete={this.handleDeletingSoda} onClickingEdit={this.handleEditClick} onClickingSellPint={this.handleSellPintClick} />
       buttonText = "Return to Soda List";
     } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewSodaForm onNewSodaCreation={this.handleAddingNewSodaToList} />;
       buttonText = "Return to Soda List";
     } else {
       currentlyVisibleState = <SodaList sodaList={this.props.masterSodaList} onSodaSelection={this.handleChangingSelectedSoda} onClickingSellPint={this.handleSellPintClick}
-      onClickingRefill={this.handleRefillKeg} />
+        onClickingRefill={this.handleRefillKeg} />
       buttonText = "Add Soda";
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
         <br></br>
-        <button style={{marginLeft: "10px"}} className="btn btn-info btn-md" onClick={this.handleClick}>{buttonText}</button>
+        <button style={{ marginLeft: "10px" }} className="btn btn-info btn-md" onClick={this.handleClick}>{buttonText}</button>
         <br /><br /><br />
       </React.Fragment>
     );

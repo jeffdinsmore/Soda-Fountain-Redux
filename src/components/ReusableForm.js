@@ -7,59 +7,59 @@ function ReusableForm(props) {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
       <div className="form-container">
         <h2>Update Soda</h2>
-          <label htmlFor="name">Name</label>
-          <br />
-          <input className="field"
-            type='text'
-            name='name'
-            placeholder='Soda Name'
-            defaultValue={props.soda.name}
-            required='required' />
-          <br></br>
-          <label htmlFor="name">Brand</label>
-          <br />
-          <input className="field"
-            type='text'
-            name='brand'
-            placeholder='Brand'
-            defaultValue={props.soda.brand}
-            required='required' />
-          <br></br>
-          <label htmlFor="name">Sugar Content</label>
-          <br />
-          <input className="field"
-            type='text'
-            name='sugarContent'
-            placeholder='List sugar content'
-            defaultValue={props.soda.sugarContent}
-            required='required' />
-          <br />
-          <label htmlFor="name">Pints (Quantity)</label>
-          <br />
-          <input className="field"
-            type='number'
-            name='pints'
-            placeholder='Total pints'
-            defaultValue={props.soda.pints}
-            required='required' />
-          <br></br>
-          <label htmlFor="name">Price Per Pint</label>
-          <br />
-          <input className="field"
-            type='text'
-            name='price'
-            placeholder='Price per pint'
-            defaultValue={props.soda.price}
-            required='required' />
-          <br></br>
-          <button className="btn btn-success btn-sm" type='submit'>{props.buttonText}</button>
-        </div>
+        <label htmlFor="name">Name</label>
+        <br />
+        <input className="field"
+          type='text'
+          name='name'
+          placeholder='Soda Name'
+          defaultValue={props.soda.name}
+          required='required' />
+        <br></br>
+        <label htmlFor="name">Brand</label>
+        <br />
+        <input className="field"
+          type='text'
+          name='brand'
+          placeholder='Brand'
+          defaultValue={props.soda.brand}
+          required='required' />
+        <br></br>
+        <label htmlFor="name">Sugar Content</label>
+        <br />
+        <input className="field"
+          type='text'
+          name='sugarContent'
+          placeholder='List sugar content'
+          defaultValue={props.soda.sugarContent}
+          required='required' />
+        <br />
+        <label htmlFor="name">Pints (Quantity)</label>
+        <br />
+        <input className="field"
+          type='number'
+          name='pints'
+          placeholder='Total pints'
+          defaultValue={props.soda.pints}
+          required='required' />
+        <br></br>
+        <label htmlFor="name">Price Per Pint</label>
+        <br />
+        <input className="field"
+          type='text'
+          name='price'
+          placeholder='Price per pint'
+          defaultValue={props.soda.price}
+          required='required' />
+        <br></br>
+        <button className="btn btn-success btn-sm" type='submit'>{props.buttonText}</button>
+      </div>
     </form>
   } else {
     formHandle = <form onSubmit={props.formSubmissionHandler}>
       <div className="form-container">
         <h2>Add New Soda</h2>
-      <label htmlFor="name">Name</label>
+        <label htmlFor="name">Name</label>
         <br />
         <input className="field"
           type='text'
