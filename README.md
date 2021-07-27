@@ -6,6 +6,8 @@
 
 ## Description
 
+_https://soda-fountain-redux.vercel.app/_
+
 _Jeff's Soda Fountain website will allow a user to add a keg of soda with details such as soda type, brand, sugar content per pint, pints left in the keg, and price per pint. The user can then view the details of each soda and "sell" a pint which will reduce the pints left in the keg by one. There is also functionality for updating, deleting, and adding a new soda._
 
 ## Component Diagram
